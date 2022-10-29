@@ -20,5 +20,16 @@ Esse repositório contém os arquivos utilizados para resolver os problemas da p
   ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
   ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white)
   
+## Estrutura
+
+- `cc1m_202202977_postgresql_hr_sql`   
+  -- se refere ao script SQL utilizado para a implementação no PostgreSQL.  
+- `cc1m_202202977_mariadb_hr_sql`   
+  -- se refere ao script SQL utilizado para a implementação no MariaDB/MySQL.  
+- `cc1m_202202977_oracle_hr_sql`   
+  -- se refere ao script SQL utilizado para a implementação no Oracle.  
+
 ## Tarefas
 
+- Implementação de um Modelo Lógico nos SGBDs PostgreSQL e MariaDB/MySQL
+- 
