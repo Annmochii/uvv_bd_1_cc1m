@@ -23,14 +23,17 @@ Esse repositório contém os arquivos utilizados para resolver os problemas da p
   
 ## Estrutura
 
-- `cc1m_202202977_postgresql_hr_sql`   
+- `cc1m_202202977_hr.architect`   
+  - se refere ao Modelo Lógico produzido no SQL Power Architect  
+- `cc1m_202202977_postgresql_hr.sql`   
   - se refere ao script SQL utilizado para a implementação no PostgreSQL.  
-- `cc1m_202202977_mariadb_hr_sql`   
+- `cc1m_202202977_mariadb_hr.sql`   
   - se refere ao script SQL utilizado para a implementação no MariaDB/MySQL.  
-- `cc1m_202202977_oracle_hr_sql`   
+- `cc1m_202202977_oracle_hr.sql`   
   - se refere ao script SQL utilizado para a implementação no Oracle.  
 
 ## Tarefas
 
-- Implementação de um Modelo Lógico nos SGBDs PostgreSQL e MariaDB/MySQL
-- 
+- Criar um  Modelo Lógico de Recursos Humanos no SQL Power Architect
+- Corrigir os erros do Modelo Lógico disponibilizado na atividade
+- Implementar o Modelo Lógico nos SGBDs PostgreSQL e MariaDB/MySQL
