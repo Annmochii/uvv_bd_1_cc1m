@@ -21,7 +21,7 @@ Esse repositório contém os arquivos utilizados para resolver os problemas da p
   ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white)
   
   
-## Estrutura
+## Arquivos
 
 - `cc1m_202202977_hr.architect`   
   - se refere ao Modelo Lógico examente igual ao disponibilizado na atividade, produzido no SQL Power Architect  
