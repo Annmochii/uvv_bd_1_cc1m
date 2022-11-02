@@ -24,7 +24,9 @@ Esse repositório contém os arquivos utilizados para resolver os problemas da p
 ## Estrutura
 
 - `cc1m_202202977_hr.architect`   
-  - se refere ao Modelo Lógico produzido no SQL Power Architect  
+  - se refere ao Modelo Lógico examente igual ao disponibilizado na atividade, produzido no SQL Power Architect  
+- `cc1m_202202977_hr_corrigido.architect`   
+  - se refere ao Modelo Lógico corrrigido produzido no SQL Power Architect  
 - `cc1m_202202977_postgresql_hr.sql`   
   - se refere ao script SQL utilizado para a implementação no PostgreSQL.  
 - `cc1m_202202977_mariadb_hr.sql`   
