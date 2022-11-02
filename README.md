@@ -38,4 +38,6 @@ Esse repositório contém os arquivos utilizados para resolver os problemas da p
 
 - Criar um  Modelo Lógico de Recursos Humanos no SQL Power Architect
 - Corrigir os erros do Modelo Lógico disponibilizado na atividade
-- Implementar o Modelo Lógico nos SGBDs PostgreSQL e MariaDB/MySQL
+- Implementar o Modelo Lógico no PostgreSQL
+- Implementar o mesmo projeto no MariaDB/MySQL
+- Implementar o mesmo projeto no Oracle
