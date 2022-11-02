@@ -52,10 +52,10 @@
      <remarks>Se refere ao último dia em que o funcionário exerceu o cargo. Deve ser maior que a data_inicial.</remarks>
     </column>
     <column id="COL14" populated="true" UUID="9045837b-3c3b-42cd-bdaf-f4a0b8db0861" autoIncrement="false" autoIncrementSequenceName="historico_cargos_id_cargo_seq" defaultValue="" name="id_cargo" nullable="0" physicalName="id_cargo" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>Se refere ao código identificador atribuído ao cargo do funcionário. Funciona como chave estrangeira para a tabela cargos.</remarks>
+     <remarks>Se refere ao código identificador atribuído ao antigo cargo do empregado. Funciona como chave estrangeira para a tabela cargos.</remarks>
     </column>
     <column id="COL15" populated="true" UUID="f578aa89-ac07-434d-af54-94357c4631fb" autoIncrement="false" autoIncrementSequenceName="historico_cargos_id_departamento_seq" defaultValue="" name="id_departamento" nullable="0" physicalName="id_departamento" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Se refere ao código identificador atribuído ao departamento ao qual o funcionário pertence. Funciona como chave estrangeira para a tabela departamentos.</remarks>
+     <remarks>Se refere ao código identificador atribuído ao departamento ao qual o empregado pertencia. Funciona como chave estrangeira para a tabela departamentos.</remarks>
     </column>
     </folder>
     <folder id="FOLTAB103" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -95,34 +95,34 @@
    </folder>
   </table>
   <table id="TAB26" populated="true" UUID="41137fa7-493c-4c0c-a0f4-cf9d6ac99e22" name="empregados" objectType="TABLE" physicalName="empregados" >
-   <remarks>Tabela empregados, que armazena os dados dos funcionários da empresa.</remarks>
+   <remarks>Tabela empregados, que armazena os dados dos empregados da empresa.</remarks>
    <folder id="FOLTAB261" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL27" populated="true" UUID="cb3d3e53-951b-418e-b6da-8cff66968198" autoIncrement="false" autoIncrementSequenceName="empregados_id_empregado_seq" defaultValue="" name="id_empregado" nullable="0" physicalName="id_empregado" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Se refere ao código identificador atribuído a um funcionário. Funciona como chave primária da tabela empregados.</remarks>
+     <remarks>Se refere ao código identificador atribuído a um empregado. Funciona como chave primária da tabela empregados.</remarks>
     </column>
     <column id="COL28" populated="true" UUID="24fc2f81-e59e-4606-84e9-9f2989874dba" autoIncrement="false" autoIncrementSequenceName="empregados_nome_seq" defaultValue="" name="nome" nullable="0" physicalName="nome" precision="75" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>Se refere ao nome completo do funcionário.</remarks>
+     <remarks>Se refere ao nome completo do empregado.</remarks>
     </column>
     <column id="COL29" populated="true" UUID="2db51ca8-8291-4467-a4cc-b1f3915bb1f2" autoIncrement="false" autoIncrementSequenceName="empregados_email_seq" defaultValue="" name="email" nullable="0" physicalName="email" precision="35" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>Se refere a parte inicial do email do funcionário (antes do @). Funciona como índice único.</remarks>
+     <remarks>Se refere a parte inicial do email do empregado (antes do @). Funciona como índice único.</remarks>
     </column>
     <column id="COL30" populated="true" UUID="e21fa0ae-9576-4747-a947-2938f97150e8" autoIncrement="false" autoIncrementSequenceName="empregados_telefone_seq" defaultValue="" name="telefone" nullable="1" physicalName="telefone" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>Se refere ao telefone do funcionário. Deve ser inserido o código do país e do estado (sem espaço e sem caracteres especiais).</remarks>
+     <remarks>Se refere ao telefone do empregado. Deve ser inserido o código do país e do estado (sem espaço e sem caracteres especiais).</remarks>
     </column>
     <column id="COL31" populated="true" UUID="6a8dad0d-68c0-4788-b27f-f2de44d4e955" autoIncrement="false" autoIncrementSequenceName="empregados_data_contratacao_seq" defaultValue="" name="data_contratacao" nullable="0" physicalName="data_contratacao" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
-     <remarks>Se refere a data em que o cargo atual foi atribuído ao funcionário.</remarks>
+     <remarks>Se refere a data em que o cargo atual foi atribuído ao empregado.</remarks>
     </column>
     <column id="COL32" populated="true" UUID="857e7fff-7fa3-4552-a8f0-9f15a6661a41" autoIncrement="false" autoIncrementSequenceName="empregados_id_cargo_seq" defaultValue="" name="id_cargo" nullable="0" physicalName="id_cargo" precision="10" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>Se refere ao código identificador atribuído ao cargo atual do funcionário. Funciona como chave estrangeira para a tabela cargos.</remarks>
+     <remarks>Se refere ao código identificador atribuído ao cargo atual do empregado. Funciona como chave estrangeira para a tabela cargos.</remarks>
     </column>
     <column id="COL33" populated="true" UUID="295e153c-8afd-464a-99a4-9adfb640cc5c" autoIncrement="false" autoIncrementSequenceName="empregados_salario_seq" defaultValue="" name="salario" nullable="1" physicalName="salario" precision="8" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
-     <remarks>Se refere ao salário atual do funcionário, em reais (sem R$). Deve ser maior que 1.212.</remarks>
+     <remarks>Se refere ao salário atual do empregado, em reais (sem R$). Deve ser maior que 1.212.</remarks>
     </column>
     <column id="COL34" populated="true" UUID="dbd2a47e-bbd9-4efd-825a-885e6ce5a32f" autoIncrement="false" autoIncrementSequenceName="empregados_comissao_seq" defaultValue="" name="comissao" nullable="1" physicalName="comissao" precision="4" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
-     <remarks>Se refere a porcentagem de comissão atribuída ao funcionário. Sendo que, apenas funcionários do departamento de vendas são elegíveis para comissões. Não pode ser maior que 30 e não pode ser negativa.</remarks>
+     <remarks>Se refere a porcentagem de comissão atribuída ao empregado. Sendo que, apenas funcionários do departamento de vendas são elegíveis para comissões. Não pode ser maior que 30 e não pode ser negativa.</remarks>
     </column>
     <column id="COL35" populated="true" UUID="f0e3675d-6ef8-434a-9dfb-33eb775f12b8" autoIncrement="false" autoIncrementSequenceName="empregados_id_empregado_seq" defaultValue="" name="id_supervisor" nullable="1" physicalName="id_supervisor" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Se refere ao funcionário que atua como supervisor direto do funcionário em questão. Funciona como chave estrangeira para a própria tabela empregados (auto-relacionamento).</remarks>
+     <remarks>Se refere ao funcionário que atua como supervisor direto do empregado em questão. Funciona como chave estrangeira para a própria tabela empregados (auto-relacionamento).</remarks>
     </column>
     </folder>
     <folder id="FOLTAB263" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -220,13 +220,13 @@
    </folder>
   </table>
   <table id="TAB64" populated="true" UUID="8b1ae984-469c-4892-bce2-2806df6bb902" name="trabalha_em" objectType="TABLE" physicalName="trabalha_em" >
-   <remarks></remarks>
+   <remarks>Tabela trabalha_em, que armazena as informações referentes a qual empregado trabalha em qual departamento.</remarks>
    <folder id="FOLTAB641" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL65" populated="true" UUID="47353746-705d-4e3e-9cfa-9d19d9a70dc8" autoIncrement="false" autoIncrementSequenceName="trabalha_em_id_departamento_seq" defaultValue="" name="id_departamento" nullable="0" physicalName="id_departamento" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks></remarks>
+     <remarks>Se refere ao código identificador atribuído a um departamento. Junto com a coluna id_empregado, funciona como chave primária composta da tabela trabalha_em. Também funciona como chave estrangeira para a tabela departamentos.</remarks>
     </column>
     <column id="COL66" populated="true" UUID="36277a18-c3f4-413f-9c67-0a843f9453f4" autoIncrement="false" autoIncrementSequenceName="trabalha_em_id_empregado_seq" defaultValue="" name="id_empregado" nullable="0" physicalName="id_empregado" precision="0" primaryKeySeq="1" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks></remarks>
+     <remarks>Se refere ao código identificador atribuído a um empregado. Junto com a coluna id_departamento funciona como chave primária composta da tabela trabalha_em. Também funciona como chave estrangeira para a tabela empregados.</remarks>
     </column>
     </folder>
     <folder id="FOLTAB643" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -282,19 +282,19 @@
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="1139" y="602" bgColor="0xc7d0df" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB10" x="1138" y="325" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB18" x="653" y="292" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB26" x="665" y="538" bgColor="0xeec994" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB18" x="657" y="324" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB26" x="668" y="522" bgColor="0xeec994" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB40" x="661" y="31" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB49" x="178" y="48" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB56" x="176" y="225" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB64" x="262" y="428" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB64" x="268" y="428" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL88" pkConnection="0.6421052631578947" fkConnection="0.5017543859649123" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL90" pkConnection="0.10101010101010101" fkConnection="0.808641975308642" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL90" pkConnection="0.45454545454545453" fkConnection="0.808641975308642" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL86" pkConnection="0.6493506493506493" fkConnection="0.303951367781155" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL78" pkConnection="0.17079889807162535" fkConnection="0.9512195121951219" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="36"/>
   <table-link relationship-ref="REL74" pkConnection="0.3" fkConnection="0.9290780141843972" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL70" pkConnection="0.6319218241042345" fkConnection="0.47513812154696133" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL72" pkConnection="0.2833333333333333" fkConnection="0.6097560975609756" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL72" pkConnection="0.2833333333333333" fkConnection="0.6711111111111111" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL80" pkConnection="0.16260162601626016" fkConnection="0.07926829268292683" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="65"/>
   <table-link relationship-ref="REL76" pkConnection="0.32323232323232326" fkConnection="0.6409495548961425" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="130"/>
   <table-link relationship-ref="REL84" pkConnection="0.17333333333333334" fkConnection="0.7062314540059347" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="66"/>
