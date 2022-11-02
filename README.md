@@ -12,9 +12,9 @@ Esse repositório contém os arquivos utilizados para resolver os problemas das 
   
 ## Estrutura
 
-- `pset 1`   
+- `pset1`   
   - primeira atividade de Problem Set  
-- `pset 2`   
+- `pset2`   
   - segundaa atividade de Problem Set  
-- `pset 3`   
+- `pset3`   
   - terceira atividade de Problem Set  
