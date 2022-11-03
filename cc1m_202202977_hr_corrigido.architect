@@ -4,7 +4,7 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
-   <property key="Logical" value="PlayPen Database" />
+   <property key="Logical" value="(Target Database)" />
   </data-source>
  </project-data-sources>
  <source-databases>
@@ -43,13 +43,13 @@
    <remarks>Tabela histórico_cargos, que armazena o histórico de cargos de um empregado. Uma linha nova deve ser inserida para cada alteração feita no cadastro de um empregado, como por exemplo uma transferência de departamento ou de cargo.</remarks>
    <folder id="FOLTAB101" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL11" populated="true" UUID="98dab2f1-b1da-4eaf-b6c4-fab74f4f93b4" autoIncrement="false" autoIncrementSequenceName="historico_cargos_data_inicial_seq" defaultValue="" name="data_inicial" nullable="0" physicalName="data_inicial" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
-     <remarks>Se refere a data em que o cargo foi atribuído ao funcionário. Funciona como chave primária da tabela historico_cargos. Deve ser menor do que a data_final.</remarks>
+     <remarks>Se refere a data em que o cargo foi atribuído ao empregado. Funciona como chave primária da tabela historico_cargos. Deve ser menor do que a data_final.</remarks>
     </column>
     <column id="COL12" populated="true" UUID="fc06f9ca-3b25-451f-ac51-75f9937f7442" autoIncrement="false" autoIncrementSequenceName="historico_cargos_id_empregado_seq" defaultValue="" name="id_empregado" nullable="0" physicalName="id_empregado" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Se refere ao código identificador atribuído a um funcionário.  Funciona como chave estrangeira para a tabela empregados.</remarks>
+     <remarks>Se refere ao código identificador atribuído a um empregado.  Funciona como chave estrangeira para a tabela empregados.</remarks>
     </column>
     <column id="COL13" populated="true" UUID="a0526789-505e-4bd5-b97d-27632ce3b476" autoIncrement="false" autoIncrementSequenceName="historico_cargos_data_final_seq" defaultValue="" name="data_final" nullable="0" physicalName="data_final" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
-     <remarks>Se refere ao último dia em que o funcionário exerceu o cargo. Deve ser maior que a data_inicial.</remarks>
+     <remarks>Se refere ao último dia em que o empregado exerceu o cargo. Deve ser maior que a data_inicial.</remarks>
     </column>
     <column id="COL14" populated="true" UUID="9045837b-3c3b-42cd-bdaf-f4a0b8db0861" autoIncrement="false" autoIncrementSequenceName="historico_cargos_id_cargo_seq" defaultValue="" name="id_cargo" nullable="0" physicalName="id_cargo" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>Se refere ao código identificador atribuído ao antigo cargo do empregado. Funciona como chave estrangeira para a tabela cargos.</remarks>
@@ -122,10 +122,10 @@
      <remarks>Se refere a porcentagem de comissão atribuída ao empregado. Sendo que, apenas funcionários do departamento de vendas são elegíveis para comissões. Não pode ser maior que 30 e não pode ser negativa.</remarks>
     </column>
     <column id="COL35" populated="true" UUID="8729d626-d21c-440a-a059-74afa6c6e5c4" autoIncrement="false" autoIncrementSequenceName="departamentos_id_departamento_seq" defaultValue="" name="id_departamento" nullable="0" physicalName="id_departamento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Se refere ao código identificador atribuído a um departamento.  Funciona como chave primária da tabela departamentos.</remarks>
+     <remarks>Se refere ao código identificador atribuído ao departamento que o empregado pertence atualmente.  Funciona como chave estrangeira para a tabela departamentos.</remarks>
     </column>
     <column id="COL36" populated="true" UUID="f0e3675d-6ef8-434a-9dfb-33eb775f12b8" autoIncrement="false" autoIncrementSequenceName="empregados_id_empregado_seq" defaultValue="" name="id_supervisor" nullable="1" physicalName="id_supervisor" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Se refere ao funcionário que atua como supervisor direto do empregado em questão. Funciona como chave estrangeira para a própria tabela empregados (auto-relacionamento).</remarks>
+     <remarks>Se refere ao empregado que atua como supervisor direto do empregado em questão. Funciona como chave estrangeira para a própria tabela empregados (auto-relacionamento).</remarks>
     </column>
     </folder>
     <folder id="FOLTAB263" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -226,7 +226,7 @@
    <remarks>Tabela trabalha_em, que armazena as informações referentes a qual empregado gerencia qual departamento.</remarks>
    <folder id="FOLTAB651" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL66" populated="true" UUID="47353746-705d-4e3e-9cfa-9d19d9a70dc8" autoIncrement="false" autoIncrementSequenceName="gerentes_id_departamento_seq" defaultValue="" name="id_departamento" nullable="0" physicalName="id_departamento" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Se refere ao código identificador atribuído a um departamento. Junto com a coluna id_gerente, funciona como chave primária composta da tabela trabalha_em. Também funciona como chave estrangeira para a tabela departamentos.</remarks>
+     <remarks>Se refere ao código identificador atribuído ao departamento que o empregado trabalha como gerente. Junto com a coluna id_gerente, funciona como chave primária composta da tabela trabalha_em. Também funciona como chave estrangeira para a tabela departamentos.</remarks>
     </column>
     <column id="COL67" populated="true" UUID="36277a18-c3f4-413f-9c67-0a843f9453f4" autoIncrement="false" autoIncrementSequenceName="gerentes_id_gerente_seq" defaultValue="" name="id_gerente" nullable="0" physicalName="id_gerente" precision="0" primaryKeySeq="1" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>Se refere ao código identificador atribuído a um empregado que gerencia um departamento. Junto com a coluna id_departamento funciona como chave primária composta da tabela trabalha_em. Também funciona como chave estrangeira para a tabela empregados.</remarks>
@@ -282,7 +282,7 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="hr"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
