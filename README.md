@@ -31,7 +31,7 @@ Esse repositório contém os arquivos utilizados para resolver os problemas da p
   - se refere ao script SQL utilizado para a implementação no PostgreSQL.  
 - `cc1m_202202977_mariadb_hr.sql`   
   - se refere ao script SQL utilizado para a implementação no MariaDB/MySQL.  
-- `cc1m_202202977_oracle_hr.sql`   
+- `cc1m_202202977_sqldeveloper_hr.sql`   
   - se refere ao script SQL utilizado para a implementação no Oracle.  
 
 ## Tarefas
