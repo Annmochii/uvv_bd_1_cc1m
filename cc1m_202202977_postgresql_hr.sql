@@ -1,3 +1,7 @@
+select current_schema;
+
+set search_path to hr, "$user", public;
+
 /*Criação de todas as tabelas com suas respectivas constraints*/
 
 /*Criação da tabela cargos, que armazena os dados dos cargos.*/
@@ -122,7 +126,7 @@ create table localizacoes (
     cep              varchar(12),
     cidade           varchar(50),
     uf               varchar(50),
-    id_pais          char(2)
+    id_pais          char(2)       not null
 );
 
 alter table localizacoes 
@@ -141,7 +145,7 @@ alter table departamentos
 create table paises (
     id_pais          char(2)       not null,
     nome             varchar(50)   not null,
-    id_regiao        int
+    id_regiao        int           not null
 );
 
 alter table paises 
