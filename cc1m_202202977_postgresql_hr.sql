@@ -1,7 +1,3 @@
-select current_schema;
-
-set search_path to hr, "$user", public;
-
 /*Criação de todas as tabelas com suas respectivas constraints*/
 
 /*Criação da tabela cargos, que armazena os dados dos cargos.*/
