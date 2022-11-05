@@ -40,7 +40,7 @@ on departamentos(nome);
 /*As tabelas cargos, departamentos e a própria tabela empregados têm chaves estrangeiras para essa tabela.*/
 create table empregados (
     id_empregado     int           not null,
-    nome             varchar(50)   not null,
+    nome             varchar(75)   not null,
     email           varchar(35)   not null,
     telefone         varchar(20),
     data_contratacao date          not null,
