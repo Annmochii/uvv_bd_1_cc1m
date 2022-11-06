@@ -1,4 +1,4 @@
-# PSET 1
+# PSet 1
 
 **Nome:** Anna Maria Lima da Silva  
 **Professor:** Abrantes Araújo Silva Filho  
