@@ -13,7 +13,7 @@
 -- Login no usuário administrativo do postgres
 -- Nome: postgres; Tipo: USER; Senha: computacao@raiz
 --
-sudo -u postgres psql
+psql -U postgres
 --
 --
 -- Criação do usuário anna
@@ -28,7 +28,7 @@ password 'ann@lima'
 -- Criação do banco de dados uvv
 -- Nome: uvv; Tipo: DATABASE; Dono: anna
 --
-create database uvv 
+create database uvv
 template = template0 
 encoding = 'UTF8' 
 lc_collate = 'pt_BR.UTF-8' 
