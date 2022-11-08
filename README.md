@@ -5,7 +5,7 @@
 **Disciplina:** Design e Desenvolvimento de Banco de Dados  
 **Turma:** CC1M (2022/2)  
 **Instituição:** Universidade de Vila Velha  
-###### Feito em conjunto com Ana Laura Brito e Raquel Rigoni
+###### Feito em conjunto com Ana Laura Brito e Raquel Rigoni  
 
 ---
 
