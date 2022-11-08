@@ -10,9 +10,44 @@
 -----------------------------------------------------------------------------
 --
 --
+-- Login no usuário administrativo do mariadb
+-- Nome: root; Tipo: USER; Senha: computacao@raiz
+--
+sudo mysql -u root -p
+--
+--
+-- Criação do usuário anna
+-- Nome: anna; Tipo: USER; Senha: ann@lima
+--
+CREATE USER 'anna'@'localhost' 
+IDENTIFIED BY 'ann@lima';
 
+GRANT ALL PRIVILEGES ON * . * TO 'anna'@'localhost';
 
+FLUSH PRIVILEGES;
+--
+--
+-- Criação do banco de dados uvv
+-- Nome: uvv; Tipo: DATABASE; Dono: anna
+--
+CREATE DATABASE uvv 
+character set utf8 
+collate utf8_bin;
 
+GRANT ALL ON anna.* TO 'anna'@'localhost' IDENTIFIED BY 'ann@lima' WITH GRANT OPTION;
+
+exit
+--
+--
+-- Login do usuário anna
+-- Nome: anna; Tipo: USER; Senha: ann@lima
+--
+mysql -u anna -p
+--
+--
+-- Entrar no banco de dados uvv
+--
+use uvv;
 --
 --
 -- Criação de todas as tabelas com suas respectivas constraints*
