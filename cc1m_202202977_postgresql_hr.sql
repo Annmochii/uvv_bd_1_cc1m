@@ -1,3 +1,28 @@
+sudo -u postgres psql
+
+create user anna with createdb
+createrole inherit replication bypassrls encrypted
+password 'ann@lima'
+;
+
+create database uvv 
+with owner = anna 
+template = template0 
+encoding = 'UTF8' 
+lc_collate = 'pt_BR.UTF-8' 
+lc_ctype = 'pt_BR.UTF-8'
+;
+
+\c uvv anna;
+
+create schema if not exists hr 
+authorization anna
+;
+
+alter user anna;
+
+set search_path to hr, "$user", public;
+
 /*Criação de todas as tabelas com suas respectivas constraints*/
 
 /*Criação da tabela cargos, que armazena os dados dos cargos.*/
