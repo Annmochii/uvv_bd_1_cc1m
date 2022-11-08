@@ -1,6 +1,47 @@
-REM Criação de todas as tabelas com suas respectivas constraints.
-REM
-REM Criação da tabela cargos, que armazena os dados dos cargos.
+-- 
+-- Pset 1
+--
+-- Nome: Anna Maria Lima da Silva
+-- Professor: Abrantes Araújo Silva Filho
+-- Disciplina: Design e Desenvolvimento de Banco de Dados
+-- Turma: CC1M (2022/2)
+-- Instituição: Universidade de Vila Velha
+--
+-----------------------------------------------------------------------------
+--
+--
+-- Login no usuário administrativo do oracle
+-- Nome: system; Tipo: USER; Senha: computacao#raiz
+--
+sqlplus system;
+
+alter session set "_ORACLE_SCRIPT"=true;
+--
+--
+-- Criação do usuário anna
+-- Nome: anna; Tipo: USER; Senha: anna
+--
+create user anna identified by anna;
+
+GRANT ALL PRIVILEGES TO anna;
+--
+--
+-- Criação do banco de dados uvv
+-- Nome: uvv; Tipo: DATABASE; Dono: anna
+--
+CREATE DATABASE uvv
+CHARACTER SET UTF8
+COLLATE pt_BR.UTF-8
+;
+--
+--
+-- Criação de todas as tabelas com suas respectivas constraints*
+-- Tabelas: cargos, departamentos, empregados, gerentes, historico_cargos, localizacoes, paises e regioes
+--
+--
+--
+-- Criação da tabela cargos, que armazena os dados dos cargos.
+--
 create table cargos (
     id_cargo         varchar(10)   not null,
     cargo            varchar(35)   not null,
@@ -19,9 +60,11 @@ add ( constraint cargos_pk
 
 create unique index cargos_cargo_ak
 on cargos(cargo);
-
-REM Criação da tabela departamentos,que armazena os dados  dos departamentos da empresa.
-REM A tabela localizacoes tem uma chave estrangeira para esta tabela.
+--
+--
+-- Criação da tabela departamentos,que armazena os dados  dos departamentos da empresa.
+-- A tabela localizacoes tem uma chave estrangeira para esta tabela.
+--
 create table departamentos (
     id_departamento  int           not null,
     nome             varchar(50),
