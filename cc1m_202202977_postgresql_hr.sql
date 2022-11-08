@@ -425,7 +425,7 @@ comment on column hr.historico_cargos.id_cargo
 is 'Se refere ao código identificador atribuído ao cargo do empregado. 
 Funciona como chave estrangeira para a tabela cargos.';
 
-comment on column historico_cargos.id_departamento
+comment on column hr.historico_cargos.id_departamento
 is 'Se refere ao código identificador atribuído ao departamento ao qual o 
 empregado pertence. Funciona como chave estrangeira para a tabela 
 departamentos.';
