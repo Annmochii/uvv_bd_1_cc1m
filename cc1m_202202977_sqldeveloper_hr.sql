@@ -33,6 +33,14 @@ CREATE DATABASE uvv
 CHARACTER SET UTF8
 COLLATE pt_BR.UTF-8
 ;
+
+exit
+--
+--
+-- Login do usuário anna
+-- Nome: anna; Tipo: USER; Senha: anna
+--
+sqlplus anna;
 --
 --
 -- Criação de todas as tabelas com suas respectivas constraints*
