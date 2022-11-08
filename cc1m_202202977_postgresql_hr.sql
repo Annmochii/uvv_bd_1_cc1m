@@ -1,31 +1,81 @@
+-- 
+-- Pset 1
+--
+-- Nome: Anna Maria Lima da Silva
+-- Professor: Abrantes Araújo Silva Filho
+-- Disciplina: Design e Desenvolvimento de Banco de Dados
+-- Turma: CC1M (2022/2)
+-- Instituição: Universidade de Vila Velha
+--
+-----------------------------------------------------------------------------
+--
+--
+-- Login no usuário administrativo do postgres
+-- Nome: postgres; Tipo: USER; Senha: computacao@raiz
+--
 sudo -u postgres psql
-
+--
+--
+-- Criação do usuário anna
+-- Nome: anna; Tipo: USER; Senha: ann@lima
+--
 create user anna with createdb
 createrole inherit replication bypassrls encrypted
 password 'ann@lima'
 ;
-
+--
+--
+-- Criação do banco de dados uvv
+-- Nome: uvv; Tipo: DATABASE; Dono: anna
+--
 create database uvv 
-with owner = anna 
 template = template0 
 encoding = 'UTF8' 
 lc_collate = 'pt_BR.UTF-8' 
 lc_ctype = 'pt_BR.UTF-8'
 ;
 
-\c uvv anna;
+ALTER DATABASE uvv OWNER TO anna;
+--
+--
+-- Login do usuário anna
+-- Nome: anna; Tipo: USER; Senha: ann@lima
+--
+\connect uvv anna
 
-create schema if not exists hr 
-authorization anna
-;
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+--
+--
+-- Criação do esquema hr
+-- Nome: hr; Tipo: SCHEMA; Schema: -; Dono: anna
+--
+CREATE SCHEMA IF NOT EXISTIS hr AUTHORIZATION anna;
 
-alter user anna;
+ALTER SCHEMA hr OWNER TO anna;
 
-set search_path to hr, "$user", public;
+SET default_tablespace = '';
 
-/*Criação de todas as tabelas com suas respectivas constraints*/
+SET default_table_access_method = heap;
 
-/*Criação da tabela cargos, que armazena os dados dos cargos.*/
+SET SEARCH_PATH TO hr, "$user", public;
+--
+--
+-- Criação de todas as tabelas com suas respectivas constraints*
+-- Tabelas: cargos, departamentos, empregados, gerentes, historico_cargos, localizacoes, paises e regioes
+--
+--
+--
+-- Criação da tabela cargos, que armazena os dados dos cargos.
+--
 create table cargos (
     id_cargo         varchar(10)   not null,
     cargo            varchar(35)   not null,
@@ -44,9 +94,11 @@ alter table cargos
 
 create unique index cargos_cargo_ak
 on cargos(cargo);
-
-/*Criação da tabela departamentos,que armazena os dados  dos departamentos da empresa.*/
-/*A tabela localizacoes tem uma chave estrangeira para esta tabela.*/
+--
+--
+-- Criação da tabela departamentos,que armazena os dados  dos departamentos da empresa.
+-- A tabela localizacoes tem uma chave estrangeira para esta tabela.
+--
 create table departamentos (
     id_departamento  int           not null,
     nome             varchar(50),
@@ -60,9 +112,11 @@ alter table departamentos
 
 create unique index departamentos_nome_ak
 on departamentos(nome);
-
-/*Criação da tabela empregados,que armazena os dados  dos empregados da empresa.*/
-/*As tabelas cargos, departamentos e a própria tabela empregados têm chaves estrangeiras para essa tabela.*/
+--
+--
+-- Criação da tabela empregados,que armazena os dados  dos empregados da empresa.
+-- As tabelas cargos, departamentos e a própria tabela empregados têm chaves estrangeiras para essa tabela.
+--
 create table empregados (
     id_empregado     int           not null,
     nome             varchar(75)   not null,
@@ -93,9 +147,11 @@ alter table empregados
 
 create unique index empregados_email_ak
 on empregados(email);
-
-/*Criação da tabela gerentes, que armazena as informações referentes a qual empregado gerencia qual departamento.*/
-/*As tabelas departamentos e empregados têm chaves estangeiras para esta tabela.*/
+--
+--
+-- Criação da tabela gerentes, que armazena as informações referentes a qual empregado gerencia qual departamento.
+-- As tabelas departamentos e empregados têm chaves estangeiras para esta tabela.
+--
 create table gerentes (
     id_departamento  int           not null,
     id_gerente       int           not null
@@ -111,9 +167,11 @@ alter table gerentes
                  foreign key (id_gerente) 
                  references empregados(id_empregado)
 ;
-
-/*Criação da tabela historico_cargos, que armazena o histórico de cargos de um empregado.*/
-/*As tabelas cargos, departamentos e empregados têm chaves estangeiras para esta tabela.*/
+--
+--
+-- Criação da tabela historico_cargos, que armazena o histórico de cargos de um empregado.
+-- As tabelas cargos, departamentos e empregados têm chaves estangeiras para esta tabela.
+--
 create table historico_cargos (
 	id_historico      int           not null,
     data_inicial     date          not null,
@@ -138,9 +196,11 @@ alter table historico_cargos
 	, add constraint data_inicial_final_check 
 				 check (data_inicial < data_final)
 ;
-
-/*Criação da tabela localizacoes, que armazena os endereços dos escritórios e facilidades da empresa.*/
-/*A tabela paises tem uma chave estangeira para esta tabela.*/
+--
+--
+-- Criação da tabela localizacoes, que armazena os endereços dos escritórios e facilidades da empresa.
+-- A tabela paises tem uma chave estangeira para esta tabela.
+--
 create table localizacoes (
     id_localizacao   int           not null,
     endereco         varchar(50),
@@ -160,9 +220,11 @@ alter table departamentos
                  foreign key (id_localizacao) 
                  references localizacoes(id_localizacao)
 ;
-
-/*Criação da tabela paises, que armazena os países nos quais existem escritórios e facilidades da empresa.*/
-/*A tabela regioes tem uma chave estangeira para esta tabela.*/
+--
+-- 
+-- Criação da tabela paises, que armazena os países nos quais existem escritórios e facilidades da empresa.
+-- A tabela regioes tem uma chave estangeira para esta tabela.
+-- 
 create table paises (
     id_pais          char(2)       not null,
     nome             varchar(50)   not null,
@@ -182,8 +244,10 @@ alter table localizacoes
 
 create unique index paises_nome_ak
 on paises(nome);
-
-/*Criação da tabela regioes, que armazena os países nos quais existem escritórios e facilidades da empresa.*/
+--
+-- 
+-- Criação da tabela regioes, que armazena os países nos quais existem escritórios e facilidades da empresa.
+-- 
 create table regioes (
     id_regiao        int           not null,
     nome             varchar(25)   not null
@@ -202,9 +266,11 @@ alter table paises
 
 create unique index regioes_nome_ak
 on regioes(nome);
-
-/*Criação de todos os comentários de descrição das tabelas*/
-
+--
+--
+-- Criação de todos os comentários de descrição das tabelas
+-- Tabelas: cargos, departamentos, empregados, gerentes, historico_cargos, localizacoes, paises e regioes
+--
 comment on table cargos 
 is 'Tabela cargos, que armazena os dados dos cargos, inclusive a faixa 
 salarial de cada um.';
@@ -237,9 +303,11 @@ facilidades da empresa.';
 comment on table regioes 
 is 'Tabela regiões, que armazena as regiões em que estão presentes os 
 países nos quais.';
-
-/*Criação dos comentários de descrição das colunas da tabela cargos*/
-
+--
+--
+-- Criação dos comentários de descrição das colunas da tabela cargos
+-- Colunas: id_cargo, cargo, salario_minimo e salario_maximo
+--
 comment on column cargos.id_cargo 
 is 'Se refere ao código identificador atribuído a um cargo. Funciona como 
 chave primária da tabela cargos.';
@@ -255,9 +323,11 @@ salario_maximo.';
 comment on column cargos.salario_maximo 
 is 'Se refere ao maior salário admitido para um cargo, em reais (sem R$). 
 Deve ser maior que o valor da coluna salario_minimo.';
-
-/*Criação dos comentários de descrição das colunas da tabela empregados*/
-
+--
+--
+-- Criação dos comentários de descrição das colunas da tabela empregados
+-- Colunas: id_empregado, nome, email, telefone, data_contratacao, id_cargo, salario, comissao, id_departamento
+--
 comment on column empregados.id_empregado 
 is 'Se refere ao código identificador atribuído a um empregado. Funciona 
 como chave primária da tabela empregados.';
@@ -299,8 +369,10 @@ is 'Se refere ao empregado que atua como supervisor direto do empregado em
 questão. Funciona como chave estrangeira para a própria tabela empregados 
 (auto-relacionamento).';
 
-/*Criação dos comentários de descrição das colunas da tabela departamentos*/
-
+--
+-- Criação dos comentários de descrição das colunas da tabela departamentos
+-- Colunas: id_departamento, nome, id_localizacao
+--
 comment on column departamentos.id_departamento
 is  'Se refere ao código identificador atribuído a um departamento.  
 Funciona como chave primária da tabela departamentos.';
@@ -312,9 +384,11 @@ is 'Se refere ao nome atribuído a um departamento. Funciona como índice
 comment on column departamentos.id_localizacao 
 is 'Se refere ao código identificador da localização a qual o departamento 
 pertence. Funciona como chave estrangeira para a tabela localizações.';
-
-/*Criação dos comentários de descrição das colunas da tabela gerentes*/
-
+--
+--
+-- Criação dos comentários de descrição das colunas da tabela gerentes
+-- Colunas: id_departamento, id_gerente
+--
 comment on column gerentes.id_departamento
 is 'Se refere ao código identificador atribuído ao departamento que o 
 empregado trabalha como gerente. Junto com a coluna id_gerente, funciona como 
@@ -326,9 +400,11 @@ is 'Se refere ao código identificador atribuído a um empregado que gerencia
 um departamento. Junto com a coluna id_departamento funciona como chave 
 primária composta da tabela trabalha_em. Também funciona como chave 
 estrangeira para a tabela empregados.';
-
-/*Criação dos comentários de descrição das colunas da tabela historico_cargos*/
-
+--
+--
+-- Criação dos comentários de descrição das colunas da tabela historico_cargos
+-- Colunas: id_historico, id_empregado, data_inicial, data_final, id_cargo, id_departamento
+--
 comment on column historico_cargos.id_historico 
 is 'Se refere ao código identificador atribuído a umm histórico. Funciona como 
 chave primária da tabela historico_cargos.';
@@ -353,9 +429,11 @@ comment on column historico_cargos.id_departamento
 is 'Se refere ao código identificador atribuído ao departamento ao qual o 
 empregado pertence. Funciona como chave estrangeira para a tabela 
 departamentos.';
-
-/*Criação dos comentários de descrição das colunas da tabela localizacoes*/
-
+--
+--
+-- Criação dos comentários de descrição das colunas da tabela localizacoes
+-- Colunas: id_localizacao, endereco, cep, cidade, uf, id_pais
+--
 comment on column localizacoes.id_localizacao 
 is 'Se refere ao código identificador atribuído a uma localização onde está 
 localizado um escritório ou facilidade da empresa. Funciona como chave 
@@ -381,9 +459,11 @@ comment on column localizacoes.id_pais
 is 'Se refere ao código identificador atribuído a um país onde está localizado 
 um escritório ou facilidade da empresa. Funciona como chave estrangeira para 
 a tabela países.';
-
-/*Criação dos comentários de descrição das colunas da tabela paises*/
-
+--
+--
+-- Criação dos comentários de descrição das colunas da tabela paises
+-- Colunas: id_pais, nome, id_regiao
+--
 comment on column paises.id_pais
 is 'Se refere ao código identificador atribuído a um país onde está localizado 
 um escritório ou facilidade da empresa. Funciona como chave primária da tabela 
@@ -397,9 +477,11 @@ comment on column paises.id_regiao
 is 'Se refere ao código identificador atribuído a uma região a qual o país onde 
 está localizado um escritório ou facilidade da empresa pertence. Funciona como 
 chave estrangeira para a tabela regiões.';
-
-/*Criação dos comentários de descrição das colunas da tabela regioes*/
-
+--
+--
+-- Criação dos comentários de descrição das colunas da tabela regioes
+-- Colunas: id_regiao, nome
+--
 comment on column regioes.id_regiao
 is 'Se refere ao código identificador atribuído a uma região a qual o país onde 
 está localizado um escritório ou facilidade da empresa pertence. Funciona como 
@@ -409,9 +491,10 @@ comment on column regioes.nome
 is 'Se refere ao nome de uma região a qual o país onde está localizado um 
 escritório ou facilidade da empresa pertence. Funciona como chave primária da 
 tabela regiões. Funciona como índice único.';
-
-/*Inserção dos dados na tabela cargos*/
-
+--
+--
+-- Inserção dos dados na tabela cargos
+--
 INSERT INTO cargos (id_cargo, cargo, salario_minimo, salario_maximo) VALUES
 ('AD_PRES', 'President', 20080, 40000);
 
@@ -468,9 +551,10 @@ INSERT INTO cargos (id_cargo, cargo, salario_minimo, salario_maximo) VALUES
 
 INSERT INTO cargos (id_cargo, cargo, salario_minimo, salario_maximo) VALUES
 ('PR_REP', 'Public Relations Representative', 4500, 10500);
-
-/*Inserção dos dados na tabela regioes*/
-
+--
+--
+-- Inserção dos dados na tabela regioes
+--
 INSERT INTO regioes (id_regiao, nome) VALUES
 (1, 'Europe');
 
@@ -482,9 +566,10 @@ INSERT INTO regioes (id_regiao, nome) VALUES
 
 INSERT INTO regioes (id_regiao, nome) VALUES
 (4, 'Middle East and Africa');
-
-/*Inserção dos dados na tabela paises*/
-
+--
+--
+-- Inserção dos dados na tabela paises
+--
 INSERT INTO paises (id_pais, nome, id_regiao) VALUES
 ('AR', 'Argentina', 2);
 
@@ -559,9 +644,10 @@ INSERT INTO paises (id_pais, nome, id_regiao) VALUES
 
 INSERT INTO paises (id_pais, nome, id_regiao) VALUES
 ('ZW', 'Zimbabwe', 4);
-
-/*Inserção dos dados na tabela localizacoes*/
-
+--
+--
+-- Inserção dos dados na tabela localizacoes
+--
 INSERT INTO localizacoes (id_localizacao, endereco, cep, 
 cidade, uf, id_pais) VALUES
 (1000, '1297 Via Cola di Rie', '00989', 'Roma', null, 'IT');
@@ -652,9 +738,10 @@ cidade, uf, id_pais) VALUES
 INSERT INTO localizacoes (id_localizacao, endereco, cep, 
 cidade, uf, id_pais) VALUES
 (3200, 'Mariano Escobedo 9991', '11932', 'Mexico City', 'Distrito Federal,', 'MX');
-
-/*Inserção dos dados na tabela departamentos*/
-
+--
+--
+-- Inserção dos dados na tabela departamentos
+--
 INSERT INTO departamentos (id_departamento, nome, id_localizacao) VALUES
 (10, 'Administration', 1700);
 
@@ -736,8 +823,9 @@ INSERT INTO departamentos (id_departamento, nome, id_localizacao) VALUES
 INSERT INTO departamentos (id_departamento, nome, id_localizacao) VALUES
 (270, 'Payroll', 1700);
 
-/*Inserção dos dados na tabela empregados*/
-
+--
+-- Inserção dos dados na tabela empregados
+--
 INSERT INTO empregados (id_empregado, nome, email,
 telefone, data_contratacao, id_cargo, salario,
 comissao, id_supervisor, id_departamento) VALUES
@@ -1266,9 +1354,10 @@ INSERT INTO empregados (id_empregado, nome, email,
 telefone, data_contratacao, id_cargo, salario,
 comissao, id_supervisor, id_departamento) VALUES
 (205, 'Shelley Higgins', 'SHIGGINS', '515.123.8080', '2002-06-07', 'AC_MGR', 12008, null, 101, 110);
-
-/*Inserção dos dados na tabela gerentes*/
-
+--
+--
+-- Inserção dos dados na tabela gerentes
+--
 INSERT INTO gerentes (id_departamento, id_gerente) VALUES
 (10, 200);
 
@@ -1300,9 +1389,10 @@ INSERT INTO gerentes (id_departamento, id_gerente) VALUES
 
 INSERT INTO gerentes (id_departamento, id_gerente) VALUES
 (110, 205); 
-
-/*Inserção dos dados na tabela historico_cargos*/
-
+--
+--
+-- Inserção dos dados na tabela historico_cargos
+--
 INSERT INTO historico_cargos (id_historico, data_inicial, id_empregado, data_final, id_cargo, id_departamento) VALUES
 (100, '1995-09-17', 200, '2001-06-17', 'AD_ASST', 90);
 
