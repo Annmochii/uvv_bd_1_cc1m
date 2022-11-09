@@ -63,7 +63,7 @@ SET row_security = off;
 -- Criação do esquema hr
 -- Nome: hr; Tipo: SCHEMA; Schema: -; Dono: anna
 --
-CREATE SCHEMA IF NOT EXISTIS hr AUTHORIZATION anna;
+CREATE SCHEMA IF NOT EXISTS hr AUTHORIZATION anna;
 
 ALTER SCHEMA hr OWNER TO anna;
 
