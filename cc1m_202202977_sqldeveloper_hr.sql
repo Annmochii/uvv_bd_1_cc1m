@@ -24,15 +24,6 @@ alter session set "_ORACLE_SCRIPT"=true;
 create user anna identified by anna;
 
 GRANT ALL PRIVILEGES TO anna;
---
---
--- Criação do banco de dados uvv
--- Nome: uvv; Tipo: DATABASE; Dono: anna
---
-CREATE DATABASE uvv
-CHARACTER SET UTF8
-COLLATE pt_BR.UTF-8
-;
 
 exit
 --
@@ -42,11 +33,16 @@ exit
 --
 sqlplus anna;
 --
+-----------------------------------------------------------------------------
+--  Criar conexão banco de dados hr pelo SQL Developer 
+-- Nome: uvv; Dono: anna; Senha: anna
+-----------------------------------------------------------------------------
+--
 --
 -- Criação de todas as tabelas com suas respectivas constraints*
 -- Tabelas: cargos, departamentos, empregados, gerentes, historico_cargos, localizacoes, paises e regioes
 --
---
+-
 --
 -- Criação da tabela cargos, que armazena os dados dos cargos.
 --
