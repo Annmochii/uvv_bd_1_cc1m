@@ -9,6 +9,10 @@
 --
 -----------------------------------------------------------------------------
 --
+-----------------------------------------------------------------------------
+-- Criar usuário anna pelo terminal de comando 
+-- Nome: anna; Tipo: USER; Senha: anna
+-----------------------------------------------------------------------------
 --
 -- Login no usuário administrativo do oracle
 -- Nome: system; Tipo: USER; Senha: computacao#raiz
@@ -35,7 +39,7 @@ sqlplus anna;
 --
 -----------------------------------------------------------------------------
 --  Criar conexão banco de dados hr pelo SQL Developer 
--- Nome: uvv; Dono: anna; Senha: anna
+-- Nome: uvv; Tipo: DATABASE CONNECTION; Dono: anna; Senha: anna
 -----------------------------------------------------------------------------
 --
 --
