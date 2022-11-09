@@ -13,16 +13,16 @@
 -- Login no usuário administrativo do mariadb
 -- Nome: root; Tipo: USER; Senha: computacao@raiz
 --
-sudo mysql -u root -p
+mysql -u root -p
 --
 --
 -- Criação do usuário anna
 -- Nome: anna; Tipo: USER; Senha: ann@lima
 --
-CREATE USER 'anna'@'localhost' 
-IDENTIFIED BY 'ann@lima';
+CREATE USER anna
+IDENTIFIED BY 'anna@lima';
 
-GRANT ALL PRIVILEGES ON * . * TO 'anna'@'localhost';
+GRANT ALL PRIVILEGES ON * . * TO anna;
 
 FLUSH PRIVILEGES;
 --
