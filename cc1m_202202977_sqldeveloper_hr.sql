@@ -43,7 +43,7 @@ exit
 -- Criação de todas as tabelas com suas respectivas constraints*
 -- Tabelas: cargos, departamentos, empregados, gerentes, historico_cargos, localizacoes, paises e regioes
 --
--
+--
 --
 -- Criação da tabela cargos, que armazena os dados dos cargos.
 --
