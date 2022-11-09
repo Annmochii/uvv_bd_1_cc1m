@@ -19,9 +19,14 @@ psql -U postgres
 -- Criação do usuário anna
 -- Nome: anna; Tipo: USER; Senha: ann@lima
 --
-create user anna with createdb
-createrole inherit replication bypassrls encrypted
-password 'ann@lima'
+create user anna with 
+	superuser
+	createdb
+	createrole 
+	inherit 
+	replication 
+	bypassrls 
+	encrypted password 'ann@lima'
 ;
 --
 --
@@ -29,10 +34,10 @@ password 'ann@lima'
 -- Nome: uvv; Tipo: DATABASE; Dono: anna
 --
 create database uvv
-template = template0 
-encoding = 'UTF8' 
-lc_collate = 'pt_BR.UTF-8' 
-lc_ctype = 'pt_BR.UTF-8'
+	template = template0 
+	encoding = 'UTF8' 
+	lc_collate = 'pt_BR.UTF-8' 
+	lc_ctype = 'pt_BR.UTF-8'
 ;
 
 ALTER DATABASE uvv OWNER TO anna;
