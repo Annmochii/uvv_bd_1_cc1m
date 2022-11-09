@@ -30,7 +30,7 @@ FLUSH PRIVILEGES;
 -- Criação do banco de dados uvv
 -- Nome: uvv; Tipo: DATABASE; Dono: anna
 --
-CREATE DATABASE uvv 
+CREATE DATABASE hr 
 character set utf8 
 collate utf8_bin;
 
@@ -47,7 +47,7 @@ mysql -u anna -p
 --
 -- Entrar no banco de dados uvv
 --
-use uvv;
+use hr;
 --
 --
 -- Criação de todas as tabelas com suas respectivas constraints*
