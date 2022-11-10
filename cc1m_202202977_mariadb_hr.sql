@@ -7,6 +7,8 @@
 -- Turma: CC1M (2022/2)
 -- Instituição: Universidade de Vila Velha
 --
+-- Desenvolvido em conjunto com Ana Laura Brito e Raquel Rigoni
+--
 -----------------------------------------------------------------------------
 --
 --
