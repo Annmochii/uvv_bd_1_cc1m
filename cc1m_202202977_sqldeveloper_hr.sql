@@ -33,12 +33,17 @@ GRANT ALL PRIVILEGES TO anna;
 exit
 --
 --
+-- Login do usuário anna
+-- Nome: anna; Tipo: USER; Senha: anna
+--
+sqlplus anna;
+--
+--
 -----------------------------------------------------------------------------
 -- Criar conexão banco de dados hr pelo SQL Developer 
 -- Nome: uvv; Tipo: DATABASE CONNECTION; Dono: anna; Senha: anna
 -- Utilizando a interface gráfica
 -----------------------------------------------------------------------------
---
 --
 -- Criação de todas as tabelas com suas respectivas constraints*
 -- Tabelas: cargos, departamentos, empregados, gerentes, historico_cargos, localizacoes, paises e regioes
